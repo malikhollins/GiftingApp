@@ -1,20 +1,20 @@
-using System;
 using System.Diagnostics;
+using System;
 
-var sqlPackage = "SqlPackage";
-string sqlPackageArgs =
+string sqlPackage = "SqlPackage";
+string sqlPackagePublishArgs =
     """
-    /Action:Publish /SourceFile:"../../DatabaseApp/bin/Release/ServerApp.dacpac" /TargetConnectionString:"Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Initial Catalog=GiftingApp;"
+    /Action:Publish /SourceFile:"./DatabaseApp/bin/Release/ServerApp.dacpac" /TargetConnectionString:"Server=(localdb)\MSSQLLocalDB;Integrated Security=true;Initial Catalog=GiftingApp;"
     """;
 
-using (Process installDotnetPackage = new Process())
+using (Process publishSqlServer = new Process())
 {
-    installDotnetPackage.StartInfo.FileName = sqlPackage;
-    installDotnetPackage.StartInfo.Arguments = sqlPackageArgs;
-    installDotnetPackage.StartInfo.CreateNoWindow = true;
-    installDotnetPackage.StartInfo.RedirectStandardOutput = true;
-    installDotnetPackage.Start();
-    string output = installDotnetPackage.StandardOutput.ReadToEnd();
-    installDotnetPackage.WaitForExit();
+    publishSqlServer.StartInfo.FileName = sqlPackage;
+    publishSqlServer.StartInfo.Arguments = sqlPackagePublishArgs;
+    publishSqlServer.StartInfo.CreateNoWindow = true;
+    publishSqlServer.StartInfo.RedirectStandardOutput = true;
+    publishSqlServer.Start();
+    string output = publishSqlServer.StandardOutput.ReadToEnd();
+    publishSqlServer.WaitForExit();
     Console.WriteLine(output);
 }

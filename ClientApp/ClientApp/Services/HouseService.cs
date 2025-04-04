@@ -16,15 +16,9 @@ namespace ClientApp.Services
 
         public async Task GetUserHouseAsync(int userId)
         {
-            try
-            {
-                // Make HTTP GET request
-                // Parse JSON response deserialize into Todo type
-                var response = await _httpClient.GetAsync($"todos?userId={userId}");
-            }
-            catch (Exception ex)
-            {
-            }
+            // Make HTTP GET request
+            // Parse JSON response deserialize into Todo type
+            var response = await _httpClient.GetAsync($"todos?userId={userId}");
         }
 
         public void Dispose() => _httpClient?.Dispose();

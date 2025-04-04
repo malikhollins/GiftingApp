@@ -2,9 +2,13 @@
 (
     [Id] INT NOT NULL PRIMARY KEY IDENTITY, 
 
-    [Username] VARCHAR(30) NULL, 
+    [AuthId] VARCHAR(64) NOT NULL,
 
-    [Password ] VARCHAR(32) NOT NULL, 
+    [Email] VARCHAR(320) NOT NULL,
 
-    [Email] VARCHAR(320) NOT NULL
+    [Name] VARCHAR(64) NULL
 )
+
+GO
+
+CREATE INDEX [IX_Users_AuthId] ON [dbo].[Users] ([AuthId])

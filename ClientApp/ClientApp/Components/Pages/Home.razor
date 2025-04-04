@@ -1,13 +1,9 @@
 ﻿@page "/"
-@using System.Runtime.CompilerServices;
-﻿@using System.ComponentModel.DataAnnotations;
-@using ClientApp.Models;
 
-
+<button onclick="@Login">Login</button>
 <div class="giftHouseCreation">
     <div class="createButton1">
         <button id="clickHouseButton"> Click to Create a GiftHouse! </button>
-
     <div class="createHouseForm">
         <EditForm Model="@GiftHouseData" OnValidSubmit="@Submit">
             <DataAnnotationsValidator />
@@ -51,25 +47,3 @@
         </div> <!-- end joinHouseForm -->
     </div> <!-- end createButton2 -->
 </div> <!-- end giftHouseJoin -->
-
-@code {
-    public GiftHouse? GiftHouseData { get; set; } 
-    public EditContext? EditContext { get; set; }
-    public string MessageStore { get; set; } = "";
-
-
-    protected override void OnInitialized()
-    {
-        GiftHouseData = new GiftHouse(); 
-        EditContext = new EditContext(GiftHouseData);
-
-    }
-
-    public void Submit()
-    {
-        MessageStore = $"{GiftHouseData?.CreatorName} created House {GiftHouseData?.HouseName}";
-        GiftHouseData = new GiftHouse();
-    }
-
-}
-

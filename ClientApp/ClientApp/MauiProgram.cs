@@ -14,8 +14,10 @@ namespace ClientApp
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
+
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddHttpClient();
+            builder.Services.SetupAuth0Authentication();
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();

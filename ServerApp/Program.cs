@@ -1,11 +1,13 @@
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using ServerApp.Services;
 using WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.TryAddSingleton<IConnectionService, DapperConnectionService>();
-builder.Services.TryAddSingleton<HouseService>();
+builder.Services.AddSingleton<IConnectionService, DapperConnectionService>();
+builder.Services.AddSingleton<HouseService>();
+builder.Services.AddSingleton<UserService>();
 
 builder.Services.AddControllers();
 
