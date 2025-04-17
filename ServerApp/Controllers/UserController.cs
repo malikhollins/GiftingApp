@@ -15,16 +15,30 @@ namespace ServerApp.Controllers
             _userService = userService;
         }
 
-        [HttpGet("{userId}/{email}")]
-        public async Task<User?> CreateUser(string userId, string email)
+        [HttpGet("create/{authId}/{email}")]
+        public async Task<User?> CreateUser(string authId, string email)
         {
-            return await _userService.CreateUser(userId, email);
+            return await _userService.CreateUser(authId, email);
         }
 
-        [HttpGet("{userId}")]
-        public async Task<User?> GetUser(string userId)
+        [HttpGet("get/{authId}")]
+        public async Task<User?> GetUser(string authId)
         {
-            return await _userService.GetUser(userId);
+            return await _userService.GetUser(authId);
+        }
+
+        [HttpGet("get/bulk/{searchTerm}/{usingName}")]
+        public async Task<IReadOnlyList<User?>> BulkGetUser(string searchTerm, bool usingName )
+        {
+            return usingName
+                ? await _userService.BulkGetUser(string.Empty, searchTerm)
+                : await _userService.BulkGetUser(searchTerm, string.Empty);
+        }
+
+        [HttpGet("get/invites/{userId}")]
+        public async Task<IReadOnlyList<Invite>> GetInvites(int userId)
+        {
+            return await _userService.GetUserInvites(userId);
         }
     }
 }

@@ -6,7 +6,7 @@
 
     [Name] VARCHAR(30) NULL, 
 
-    [GiftType] INT NOT NULL, 
+    [GiftType] INT NULL, 
     
     -- GiftingType is an enum for the type of gifting the house uses 
     -- ( currently, 0 for assigning user to list item, 1 for random gifting ).

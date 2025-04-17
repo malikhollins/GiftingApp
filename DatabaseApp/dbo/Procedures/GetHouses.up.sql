@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[GetHouses](@user_id AS INT)
 AS
 BEGIN
-    SELECT [dbo].[Houses].[Owner], [Houses].[Name], [Houses].[GiftType]
+    SELECT [dbo].[Houses].[Id], [dbo].[Houses].[Owner], [Houses].[Name], [Houses].[GiftType]
     FROM [dbo].[Users]
     JOIN [dbo].[UserToHouse] ON [dbo].[Users].[Id] = [dbo].[UserToHouse].[User]
     JOIN [dbo].[Houses] 

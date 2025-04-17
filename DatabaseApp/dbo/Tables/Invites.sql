@@ -1,8 +1,15 @@
 ﻿CREATE TABLE [dbo].[UserToHouse]
 (
-    [User] INT NOT NULL PRIMARY KEY, 
+    [Id] INT NOT NULL PRIMARY KEY,
+
+    [User] INT NOT NULL,
 
     [House] INT NOT NULL, 
+
+    -- Status is an enum for the state of the user invitation
+    -- ( currently, 0 for pending, 1 for accepted, 2 for rejected ).
+
+    [Status] INT NOT NULL,
 
     CONSTRAINT [FK_UserToHouse_Users] FOREIGN KEY ([User]) REFERENCES [Users]([Id]),
 

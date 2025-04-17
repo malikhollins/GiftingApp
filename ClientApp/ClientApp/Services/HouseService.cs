@@ -1,7 +1,4 @@
 ﻿
-using Microsoft.Extensions.Logging;
-using System.Net.Http;
-using System.Text.Json;
 
 namespace ClientApp.Services
 {
@@ -17,8 +14,8 @@ namespace ClientApp.Services
         public async Task GetUserHouseAsync(int userId)
         {
             // Make HTTP GET request
-            // Parse JSON response deserialize into Todo type
-            var response = await _httpClient.GetAsync($"todos?userId={userId}");
+            // Parse JSON response deserialize into house type
+            var response = await _httpClient.GetAsync($"api/House/{userId}");
         }
 
         public void Dispose() => _httpClient?.Dispose();

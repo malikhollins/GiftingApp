@@ -65,10 +65,15 @@
     <Build Include="dbo\Tables\ItemsInList.sql" />
     <Build Include="dbo\Tables\Lists.sql" />
     <Build Include="dbo\Tables\Users.sql" />
-    <Build Include="dbo\Tables\UsersHousesLink.sql" />
     <Build Include="dbo\Procedures\GetHouses.up.sql" />
     <Build Include="dbo\Procedures\CreateUser.up.sql" />
     <Build Include="dbo\Procedures\GetUser.up.sql" />
+    <Build Include="dbo\Procedures\CreateHouse.up.sql" />
+    <Build Include="dbo\Procedures\CreateHouseInvite.up.sql" />
+    <Build Include="dbo\Procedures\UpdateHouseInvite.up.sql" />
+    <Build Include="dbo\Tables\Invites.sql" />
+    <Build Include="dbo\Procedures\GetUserInvites.sql" />
+    <Build Include="dbo\Procedures\BulkGetUsers.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />

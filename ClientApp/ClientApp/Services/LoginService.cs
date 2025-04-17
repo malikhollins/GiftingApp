@@ -33,13 +33,13 @@ namespace ClientApp.Services
                 if (wasCreated != null && (bool.TryParse(wasCreated.Value, out var result) && result))
                 {
                     var email = loginResult.User.Claims.FirstOrDefault(claim => claim.Type == "email");
-                    var response = await _httpClient.GetAsync($"todos?userId={userId}/email={email}");
+                    var response = await _httpClient.GetAsync($"api/User/create/{userId}/{email}");
                     Debug.WriteLine(response);
                 }
                 else
                 {
                     // fetch db
-                    var response = await _httpClient.GetAsync($"todos?userId={userId}");
+                    var response = await _httpClient.GetAsync($"api/User/get/{userId}");
                     Debug.WriteLine(response);
                 }
 
