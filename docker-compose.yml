@@ -26,14 +26,21 @@ services:
         for procedure in /scripts/Procedures/*.sql
           do /opt/mssql-tools18/bin/sqlcmd -U sa -P $$MSSQL_SA_PASSWORD -C -e -i $$procedure
         done
-
-        # run in the background
-        sleep infinity
+        
+        wait
+    healthcheck:
+      test: [ "CMD-SHELL", "sleep 30 && /opt/mssql-tools18/bin/sqlcmd -C -U SA -P $$MSSQL_SA_PASSWORD -Q \"SELECT 1\"" ]
+      interval: 30s
+      timeout: 40s
+      retries: 10
+      start_period: 30s
   serverapp:
     image: ${DOCKER_REGISTRY-}serverapp
     build:
-      context: .
-      dockerfile: ServerApp/Dockerfile
+      context: ./ServerApp
+      additional_contexts: 
+        solution: .
+      dockerfile: Dockerfile
     volumes:
       - ./.aspnet/https:/https:ro
     environment:
@@ -46,4 +53,30 @@ services:
     ports: 
         - 443:443 
     depends_on:
-        - database
+        database:
+          condition: service_healthy 
+    profiles: [prod]
+  serverapp-test:
+    image: ${DOCKER_REGISTRY-}serverapp
+    build:
+      context: ./ServerApp
+      additional_contexts: 
+        solution: .
+        tests: ./ServerApp.IntegrationTests
+      dockerfile: Dockerfile
+      target: integration-test
+    volumes:
+      - ./.aspnet/https:/https:ro
+    environment:
+        - ASPNETCORE_URLS=https://+:443
+        - DOTNET_URLS=https://+:443
+        - ASPNETCORE_HTTPS_PORT=443
+        - ASPNETCORE_ENVIRONMENT=Development
+        - ASPNETCORE_Kestrel__Certificates__Default__Password=somepassword
+        - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+    ports: 
+        - 443:443 
+    depends_on:
+        database:
+          condition: service_healthy 
+    profiles: [test]

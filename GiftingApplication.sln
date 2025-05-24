@@ -9,14 +9,14 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseApp", "DatabaseApp\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerApp", "ServerApp\ServerApp.csproj", "{4E3C32DD-85D3-4097-AA2E-FED2E4738630}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunCommands", "SqlPackageCommands\RunCommands\RunCommands.csproj", "{C5447E91-39EF-4F2C-B435-9E7D16E08843}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		.aspnet\http\aspnetapp.pfx = .aspnet\http\aspnetapp.pfx
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerApp.IntegrationTests", "ServerApp.IntegrationTests\ServerApp.IntegrationTests.csproj", "{49668976-174C-4683-8D6C-C8A81ED89DC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,14 +40,14 @@ Global
 		{4E3C32DD-85D3-4097-AA2E-FED2E4738630}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E3C32DD-85D3-4097-AA2E-FED2E4738630}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E3C32DD-85D3-4097-AA2E-FED2E4738630}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C5447E91-39EF-4F2C-B435-9E7D16E08843}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C5447E91-39EF-4F2C-B435-9E7D16E08843}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C5447E91-39EF-4F2C-B435-9E7D16E08843}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C5447E91-39EF-4F2C-B435-9E7D16E08843}.Release|Any CPU.Build.0 = Release|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49668976-174C-4683-8D6C-C8A81ED89DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49668976-174C-4683-8D6C-C8A81ED89DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49668976-174C-4683-8D6C-C8A81ED89DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49668976-174C-4683-8D6C-C8A81ED89DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

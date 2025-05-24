@@ -9,11 +9,24 @@ WORKDIR /app
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["ServerApp/ServerApp.csproj", "ServerApp/"]
-RUN dotnet restore "./ServerApp/ServerApp.csproj"
-COPY . .
+COPY ["ServerApp.csproj", "ServerApp/"]
+RUN dotnet restore "ServerApp/ServerApp.csproj"
+COPY --from=solution . .
 WORKDIR "/src/ServerApp"
 RUN dotnet build "./ServerApp.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+# test-build builds the xUnit integration test project
+FROM build AS test-build
+WORKDIR /src
+COPY --from=tests --link . tests/
+COPY /appsettings.json tests/
+WORKDIR /src/tests
+RUN dotnet restore
+RUN dotnet build --no-restore
+
+# test-entrypoint exposes tests as the default executable for the stage
+FROM test-build AS integration-test
+ENTRYPOINT ["dotnet", "test", "--no-build", "--logger:trx"]
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
