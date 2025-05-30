@@ -42,7 +42,7 @@ docker compose --profile prod up && docker compose --profile prod build
 ```
 
 Running the client app will now connect you to a local server with the API
-
+:: Any issues regarding Virtulization: https://aka.ms/enablevirtualization
 
 ### Developing server
 
@@ -51,4 +51,3 @@ If you need to run integration tests you can use the command below in the projec
 ```
 docker compose --profile test up && docker compose --profile test build
 ```
-
