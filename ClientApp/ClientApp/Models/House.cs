@@ -2,8 +2,10 @@
 
 namespace ClientApp.Models
 {
-    public class GiftHouse
+    public class House
     {
+        public int Id { get; set; }
+
         [Required]
         [StringLength(30, MinimumLength = 2, ErrorMessage = "The Gifthouse name must be between 2 and 30 characters.")]
         public string? HouseName { get; set; }
@@ -14,8 +16,9 @@ namespace ClientApp.Models
 
         public User? Owner { get; set; }
 
-        public string?  Description { get; set; }
-
-        public string? LastUpdated { get; set; }
+        public override string ToString()
+        {
+            return string.Format("{0}, {1}, {2}", HouseName, Owner, Id);
+        }
     }
 }

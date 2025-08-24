@@ -7,15 +7,15 @@
         <a class="bi-x-square-fill" id="CloseCreateBubble" href="/homepage"></a>
     <h1> Create Home </h1>
 
-        <EditForm FormName="CreateGiftHome" Model="@GiftHouseData" OnValidSubmit="@Submit">
+        <EditForm FormName="CreateGiftHome" Model="@HouseData" OnValidSubmit="@Submit">
             <DataAnnotationsValidator />
 
             <div class="NameButton">
                 <label for="HouseNameLabel" style="text-align:left;">
                     Enter a Gifthouse name
                     </label>
-                <InputText id="HouseNameLabel" @bind-Value="@GiftHouseData!.HouseName" placeholder="Name here" />
-                <ValidationMessage For="() => GiftHouseData.HouseName" />
+                <InputText id="HouseNameLabel" @bind-Value="@HouseData!.HouseName" placeholder="Name here" />
+                <ValidationMessage For="() => HouseData.HouseName" />
 
             </div> <!-- end NameButton -->
 
@@ -23,8 +23,8 @@
                 <label for="EmailLabel" style="text-align:left;">
                     Add others
                     </label> <br />
-                <InputText id="EmailLabel" @bind-Value="@GiftHouseData!.Email" placeholder="Enter the recipient email" AutoComplete=true />
-                <ValidationMessage For="() => GiftHouseData.Email" />
+                <InputText id="EmailLabel" @bind-Value="@HouseData!.Email" placeholder="Enter the recipient email" AutoComplete=true />
+                <ValidationMessage For="() => HouseData.Email" />
             </div><!-- end EmailButton -->
 
             <div class="CreateEmailList">
@@ -32,7 +32,7 @@
             </div> <!-- end CreateEmailList -->
 
             <div class="submitButton">
-                <button id="submit" class="btn btn-primary" type="submit"> Create Gifthouse </button>
+                <button id="submit" class="btn btn-primary" type="submit" onclick=@(Submit)> Create Gifthouse </button>
             </div><!-- end submitButton -->
 
             <p class="messageStore">@MessageStore</p>

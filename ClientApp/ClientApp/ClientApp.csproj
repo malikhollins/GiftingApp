@@ -72,7 +72,7 @@
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </Content>
       <Content Include="Resources\Images\gift.png" />
-      <Content Include="Resources\Images\giftall.png.ico" />
+      <Content Include="Resources\Images\gift_all.png.ico" />
     </ItemGroup>
 
     <ItemGroup>

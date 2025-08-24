@@ -17,9 +17,12 @@ namespace ClientApp.Services
             return _user;
         }
 
-        public void SetUserInfo(User user)
+        public void SetUserInfo(User? user)
         {
-            _user = user;
+            if (user != null)
+            { 
+                _user = user;
+            }
         }
     }
 }

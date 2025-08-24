@@ -5,8 +5,6 @@
                 <div id="HomeTitle">
                     <CardTitle Size="HeadingSize.H3">@Model.HouseName</CardTitle>
                 </div> <!-- end HomeTitle-->
-                <CardText> @Model.Description </CardText>
-                <CardFooter Style="text-align:right; background:none;"> @Model.LastUpdated </CardFooter>
             </CardLink>
         </CardBody>
     </Card>
@@ -14,6 +12,5 @@
 <!-- note: foreach to add card to home every addition?-->
 @code {
     [Parameter]
-    public GiftHouse? Model { get; set; } = new();
-
+    public House Model { get; set; } = new();
 }

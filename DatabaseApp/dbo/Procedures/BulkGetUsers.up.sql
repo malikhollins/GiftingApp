@@ -1,7 +1,4 @@
-﻿USE GiftingApp;
-GO
-
-CREATE OR ALTER PROCEDURE [dbo].[BulkGetUsers]
+﻿CREATE OR ALTER PROCEDURE [dbo].[BulkGetUsers]
 	@email varchar(64)
 AS
 BEGIN

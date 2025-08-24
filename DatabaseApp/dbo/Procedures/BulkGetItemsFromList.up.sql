@@ -1,7 +1,4 @@
-﻿USE GiftingApp;
-GO
-
-CREATE OR ALTER PROCEDURE [dbo].[BulkGetItemsFromList]
+﻿CREATE OR ALTER PROCEDURE [dbo].[BulkGetItemsFromList]
 	@list_id INT
 AS
 BEGIN

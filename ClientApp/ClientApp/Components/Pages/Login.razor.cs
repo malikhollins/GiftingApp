@@ -3,13 +3,14 @@ using Microsoft.AspNetCore.Components;
 
 namespace ClientApp.Components.Pages
 {
-    public partial class LoginGiftAll
+    public partial class Login
     {
         [Inject] LoginService LoginService { get; set; } = null!;
         [Inject] NavigationManager NavigationManager { get; set; } = null!;
 
         private bool _isLoggingIn = false;
-        public async void Login()
+
+        public async void OnLoginClickedAsync()
         {
             if (_isLoggingIn)
             {

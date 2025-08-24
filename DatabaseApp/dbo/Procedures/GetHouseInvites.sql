@@ -1,7 +1,4 @@
-﻿USE GiftingApp;
-GO
-
-CREATE OR ALTER PROCEDURE [dbo].[GetHouseInvites]
+﻿CREATE OR ALTER PROCEDURE [dbo].[GetHouseInvites]
 	@house_id int
 AS
 BEGIN

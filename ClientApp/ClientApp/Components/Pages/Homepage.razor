@@ -1,23 +1,21 @@
 @page "/homepage"
 
 <div id="HomepageGiftAll"> 
-
-    <h1 class="createTooltip"> GIFT ALL </h1> <!-- hidden after #houses>1 | Change to: "Click the plus button below to create a house!" for new users -->
-    <div id="GiftAppHome">
-        <HouseCard />
-        <HouseCard />
-        <UserCard />
-        <UserCard />
-        <UserCard />
-        <HouseCard />
-    </div> <!-- end GiftAppHome-->
-
+    @if (HasNoHouses)
+    {
+        <CreateHome></CreateHome>
+    }
+    else
+    {
+        <div id="GiftAppHome">
+            @foreach (var house in Houses)
+            {
+                <HouseCard Model="@house"/>
+            }
+        </div> <!-- end GiftAppHome-->
+    }
     <div class="footer">
         <BottomNav />
     </div> <!-- end footer-->
 
 </div> <!-- end homepageGiftAll -->
-
-@code {
-    
-}

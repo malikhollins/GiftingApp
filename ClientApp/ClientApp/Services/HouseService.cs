@@ -1,5 +1,7 @@
 ﻿
 using ClientApp.Models;
+using ClientApp.Utils;
+using System.Text.Json;
 
 namespace ClientApp.Services
 {
@@ -14,18 +16,20 @@ namespace ClientApp.Services
             _userInfoService = userInfoService;
         }
 
-        public async Task GetUserHouseAsync()
+        public async Task<IEnumerable<House>> GetHousesAsync()
         {
             HttpClient httpClient = _httpClientFactory.CreateClient("base-url");
             User? user = _userInfoService.GetUserInfo();
-            if (user == null)
-            {
-                return;
-            }
-
-            HttpResponseMessage response = await httpClient.GetAsync($"api/House/get/{user.Id}");
+            HttpResponseMessage response = await httpClient.GetAsync($"api/House/get/{user?.Id ?? -1}");
             var jsonResponse = await response.Content.ReadAsStringAsync();
-            Console.WriteLine(jsonResponse);
+            return JsonSerializer.Deserialize<IEnumerable<House>>( jsonResponse ) ?? [];
+        }
+        public async Task<House> CreateHouseAsync( House houseToCreate )
+        {
+            HttpClient httpClient = _httpClientFactory.CreateClient("base-url");
+            User? user = _userInfoService.GetUserInfo();
+            HttpResponseMessage response = await httpClient.GetAsync($"api/House/create/{user?.Id ?? -1}/{houseToCreate.HouseName}");
+            return await response.DeserializeAsync<House>() ?? new House();
         }
     }
 }

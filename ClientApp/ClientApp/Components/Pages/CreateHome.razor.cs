@@ -7,47 +7,27 @@ namespace ClientApp.Components.Pages
 {
     public partial class CreateHome
     {
-        [Inject] LoginService LoginService { get; set; } = null!;
+        [Inject] HouseService HouseService { get; set; } = null!;
 
-        public GiftHouse? GiftHouseData { get; set; }
+        public House HouseData { get; set; } = null!;
         public EditContext? EditContext { get; set; }
         public string MessageStore { get; set; } = "";
 
-        private bool _isLoggingIn = false;
-
         protected override void OnInitialized()
         {
-            GiftHouseData = new GiftHouse();
-            EditContext = new EditContext(GiftHouseData);
+            HouseData = new House();
+            EditContext = new EditContext(HouseData);
         }
 
-        public void Submit()
+        public async Task Submit()
         {
-            MessageStore = $"{GiftHouseData?.Email} joined House {GiftHouseData?.HouseName}";
-            GiftHouseData = new GiftHouse();
-        }
+            MessageStore = $"{HouseData.Email} joined House {HouseData.HouseName}";
+            var house = await HouseService.CreateHouseAsync(HouseData);
 
-        public async void Login()
-        {
-            if (_isLoggingIn)
-            {
-                return;
-            }
+            Console.WriteLine(house.ToString());
 
-            try
-            {
-                _isLoggingIn = true;
-
-                await LoginService.LoginAsync();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                _isLoggingIn = false;
-            }
+            // reset house data
+            HouseData = new House();
         }
     }
 }

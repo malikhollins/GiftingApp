@@ -1,7 +1,4 @@
-﻿USE GiftingApp;
-GO
-
-CREATE OR ALTER PROCEDURE [dbo].[CreateItemInList]
+﻿CREATE OR ALTER PROCEDURE [dbo].[CreateItemInList]
 (
 @list_id AS INT,
 @name AS varchar(225), 

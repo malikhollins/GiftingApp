@@ -5,8 +5,6 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientApp", "ClientApp\ClientApp\ClientApp.csproj", "{268B5E4B-A377-45A1-A46D-BABE4C2117E6}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseApp", "DatabaseApp\DatabaseApp.sqlproj", "{57F322C8-7703-4A13-AC87-BB6EF703A1CB}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerApp", "ServerApp\ServerApp.csproj", "{4E3C32DD-85D3-4097-AA2E-FED2E4738630}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
@@ -30,12 +28,6 @@ Global
 		{268B5E4B-A377-45A1-A46D-BABE4C2117E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{268B5E4B-A377-45A1-A46D-BABE4C2117E6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{268B5E4B-A377-45A1-A46D-BABE4C2117E6}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{57F322C8-7703-4A13-AC87-BB6EF703A1CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{57F322C8-7703-4A13-AC87-BB6EF703A1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{57F322C8-7703-4A13-AC87-BB6EF703A1CB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{57F322C8-7703-4A13-AC87-BB6EF703A1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{57F322C8-7703-4A13-AC87-BB6EF703A1CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{57F322C8-7703-4A13-AC87-BB6EF703A1CB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{4E3C32DD-85D3-4097-AA2E-FED2E4738630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4E3C32DD-85D3-4097-AA2E-FED2E4738630}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E3C32DD-85D3-4097-AA2E-FED2E4738630}.Release|Any CPU.ActiveCfg = Release|Any CPU

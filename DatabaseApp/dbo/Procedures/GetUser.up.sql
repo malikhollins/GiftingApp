@@ -1,7 +1,4 @@
-﻿USE GiftingApp;
-GO
-
-CREATE OR ALTER PROCEDURE [dbo].[GetUser](@user_id AS varchar(64))
+﻿CREATE OR ALTER PROCEDURE [dbo].[GetUser](@user_id AS varchar(64))
 AS
 BEGIN
 	SELECT [dbo].[Users].[Id], [dbo].[Users].[Email], [dbo].[Users].[Name] FROM [dbo].[Users]

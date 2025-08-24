@@ -1,7 +1,4 @@
-﻿USE GiftingApp;
-GO
-
-CREATE OR ALTER PROCEDURE [dbo].[BulkGetLists]
+﻿CREATE OR ALTER PROCEDURE [dbo].[BulkGetLists]
 	@house_id INT
 AS
 BEGIN

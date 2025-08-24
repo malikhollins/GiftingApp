@@ -1,8 +1,4 @@
-﻿USE GiftingApp;
-
-GO
-
-CREATE TABLE [dbo].[Houses]
+﻿CREATE TABLE [dbo].[Houses]
 (
     [Id] INT NOT NULL PRIMARY KEY IDENTITY, 
 
